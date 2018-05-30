@@ -1,0 +1,39 @@
+{
+  "name": "firststepforjavascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.babel.js",
+  "scripts": {
+    "test": "eslint --fix",
+    "build": "webpack -p --progress",
+    "watch": "webpack -d --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-import": "^1.7.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "less": "^2.7.3",
+    "less-loader": "^4.1.0",
+    "less-vars-to-js": "^1.2.1",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^3.12.0"
+  },
+  "dependencies": {
+    "antd": "^3.5.2",
+    "highlight.js": "^9.12.0",
+    "highlightjs-line-numbers.js": "^2.3.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-promise": "^2.0.3",
+    "react-router-dom": "^4.2.2"
+  }
+}
