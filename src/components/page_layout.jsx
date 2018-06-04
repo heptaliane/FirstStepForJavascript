@@ -37,3 +37,5 @@ PageLayout.defaultProps = {
   prevUrl: '',
   section: '',
 };
+
+export default PageLayout;
