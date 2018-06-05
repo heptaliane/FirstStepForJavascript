@@ -2,35 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import JsonLoader from './json_loader.jsx';
+import jsonLoaderGenerator from './json_loader.jsx';
 
 
-const JsonRouter = function({routeList, onLoad}) {
+const JsonRouter = ({routeList, onLoad}) => {
+  const loaders = jsonLoaderGenerator({
+    routeList: routeList,
+    onLoad: onLoad,
+  });
+
   return (
     <BrowserRouter>
       <Switch>
-        {routeList.map(({jsonUrl, route}, idx) => {
+        {routeList.map(({route}, idx) => {
           return (
             <Route
               key={`match-${idx}`}
-              component={
-                <JsonLoader
-                  jsonUrl={jsonUrl}
-                  onLoad={onLoad}
-                />
-              }
               exact={true}
               path={route}
+              render={loaders[idx]}
             />
           );
         })}
         <Route
-          component={
-            <JsonLoader
-              jsonUrl={routeList[0].jsonUrl}
-              onLoad={onLoad}
-            />
-          }
+          path="*"
+          render={loaders[0]}
         />
       </Switch>
     </BrowserRouter>
@@ -38,7 +34,10 @@ const JsonRouter = function({routeList, onLoad}) {
 };
 
 JsonRouter.propTypes = {
-  routeList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  routeList: PropTypes.arrayOf(PropTypes.shape({
+    jsonUrl: PropTypes.string.isRequired,
+    route: PropTypes.string.isRequired,
+  })).isRequired,
   onLoad: PropTypes.func.isRequired,
 };
 

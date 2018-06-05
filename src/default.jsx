@@ -15,7 +15,12 @@ class DefaultApp extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      next: undefined,
+      prev: undefined,
+      title: undefined,
+      body: undefined,
+    };
 
     this.handleLoad = this.handleLoad.bind(this);
   }

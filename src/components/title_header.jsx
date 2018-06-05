@@ -65,31 +65,36 @@ const buttonStyle = {
 
 export default class TitleHeader extends React.Component {
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.section !== prevState.section ||
+      nextProps.nextUrl !== prevState.nextUrl ||
+      nextProps.prevUrl !== prevState.prevUrl) {
+      return nextProps;
+    }
+
+    return null;
+  }
+
   constructor(props) {
     super(props);
 
-    this.title = title;
-    this.subtitle = subtitle;
-    this.section = props.section;
-    this.nextUrl = props.nextUrl;
-    this.prevUrl = props.prevUrl;
+    this.state = {
+      section: props.section,
+      nextUrl: props.nextUrl,
+      prevUrl: props.prevUrl,
+    };
 
     this.handleTop = this.handleTop.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
     this.handleNext = this.handleNext.bind(this);
   }
 
-  shouldComponentUpdate() {
-    // Static component
-    return false;
-  }
-
   handlePrev() {
-    location.href = this.prevUrl;
+    location.href = this.state.prevUrl;
   }
 
   handleNext() {
-    location.href = this.nextUrl;
+    location.href = this.state.nextUrl;
   }
 
   handleTop() {
@@ -107,19 +112,19 @@ export default class TitleHeader extends React.Component {
               onClick={this.handleTop}
               style={titleStyle}
             >
-              {this.title}
+              {title}
             </Button>
           </Row>
           <Row>
             <h3 style={subtitleStyle}>
-              {this.subtitle}
+              {subtitle}
             </h3>
           </Row>
         </div>
         <Row style={controlStyle}>
           <Col span={4}>
             <Button
-              disabled={this.prevUrl === ''}
+              disabled={this.state.prevUrl === ''}
               icon="arrow-left"
               onClick={this.handlePrev}
               style={buttonStyle}
@@ -131,12 +136,12 @@ export default class TitleHeader extends React.Component {
           </Col>
           <Col span={16}>
             <div style={sectionStyle}>
-              {this.section}
+              {this.state.section}
             </div>
           </Col>
           <Col span={4}>
             <Button
-              disabled={this.nextUrl === ''}
+              disabled={this.state.nextUrl === ''}
               icon="arrow-right"
               onClick={this.handleNext}
               style={buttonStyle}
