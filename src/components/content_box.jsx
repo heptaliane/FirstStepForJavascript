@@ -56,7 +56,7 @@ export default class ContentBox extends React.PureComponent {
               <Markdown
                 key={`docs-${idx}`}
                 escapeHtml={false}
-                source={this.state.nonCodeBlocks[idx]}
+                source={this.state.nonCodeBlocks[idx].join('\n')}
               />
               {idx < this.state.codeBlocks.length &&
                 <CodeView
