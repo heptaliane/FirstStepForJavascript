@@ -2,5 +2,9 @@
     {
         "jsonUrl": "https://raw.githubusercontent.com/heptaliane/FirstStepForJavascript/master/docs/docs/index.json",
         "route": "/"
+    },
+    {
+        "jsonUrl": "docs/00/00.json",
+        "route": "/00/before_reading"
     }
 ]
