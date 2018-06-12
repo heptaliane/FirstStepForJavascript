@@ -38,17 +38,16 @@ export default class AsyncRouter extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        {
-          this.state.hasLoad &&
-          <JsonRouter
-            onLoad={this.handleLoad}
-            routeList={this.state.routeList}
-          />
-        }
-      </div>
-    );
+    if (this.state.hasLoad) {
+      return (
+        <JsonRouter
+          onLoad={this.handleLoad}
+          routeList={this.state.routeList}
+        />
+      );
+    }
+    return <div />;
+
   }
 
 }

@@ -6,15 +6,16 @@ import {Row, Col, Button} from 'antd';
 import {
   title,
   subtitle,
-  gradient_colors as gcolors,
-  backgroud_image_url as bgUrl,
+  vivid_gradient_colors as gcolors,
 } from '../constant.json';
 
 
-const bgimg = `url(${bgUrl})`;
+const gradient = `linear-gradient(20deg, ${gcolors.join(',')})`;
 
 const headerStyle = {
-  background: `linear-gradient(30deg, ${gcolors[0]}, ${gcolors[1]}), ${bgimg}`,
+  animation: 'GradientAnimation 30s ease alternate infinite',
+  background: `${gradient}`,
+  backgroundSize: '600% 600%',
   boxShadow: '1px 0px 2px rgba(0, 0, 0, 0.75)',
   height: '150px',
   padding: '10px',
@@ -105,7 +106,10 @@ export default class TitleHeader extends React.Component {
   }
 
   handleTop() {
-    location.href = location.origin;
+    const idx = window.location.pathname.slice(1).indexOf('/') + 1;
+    const repo = window.location.pathname.slice(0, idx);
+    const node = window.location.pathname.slice(idx);
+    window.location.replace(`${repo}/?p=${node}`);
   }
 
   render() {

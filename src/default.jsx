@@ -20,13 +20,16 @@ class DefaultApp extends React.Component {
       prev: undefined,
       title: undefined,
       body: undefined,
+      content: null,
     };
 
     this.handleLoad = this.handleLoad.bind(this);
   }
 
   handleLoad(data) {
-    this.setState(data);
+    if (data !== null) {
+      this.setState(data);
+    }
   }
 
   render() {
@@ -40,9 +43,13 @@ class DefaultApp extends React.Component {
           prevUrl={this.state.prev}
           section={this.state.title}
         >
-          <ContentBox
-            body={this.state.body}
-          />
+          {this.state.content}
+          {
+            this.state.content === null &&
+            <ContentBox
+              body={this.state.body}
+            />
+          }
         </PageLayout>
       </div>
     );

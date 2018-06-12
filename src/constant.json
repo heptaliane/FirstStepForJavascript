@@ -1,9 +1,21 @@
 {
     "title": "はじめてのJavaScript",
     "subtitle": "よいJavaScriptコードを書くために",
-    "gradient_colors": [
-        "rgba(35, 206, 199, 0.8)",
-        "rgba(240, 0, 200, 0.8)"
+    "pastel_gradient_colors": [
+        "rgba(240, 180, 170, 0.8)",
+        "rgba(240, 235, 170, 0.8)",
+        "rgba(170, 240, 170, 0.8)",
+        "rgba(170, 230, 240, 0.8)",
+        "rgba(187, 170, 240, 0.8)",
+        "rgba(240, 170, 240, 0.8)"
+    ],
+    "vivid_gradient_colors": [
+        "rgba(230, 53, 43, 0.8)",
+        "rgba(230, 218, 43, 0.8)",
+        "rgba(61, 230, 43, 0.8)",
+        "rgba(43, 230, 207, 0.8)",
+        "rgba(105, 47, 230, 0.8)",
+        "rgba(230, 43, 223, 0.8)"
     ],
     "backgroud_image_url": "img/title_bg.png",
     "author": "heptaliane",

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import jsonLoaderGenerator from './json_loader.jsx';
+import createJsonLoader from './create_json_loader.jsx';
 
 
 const JsonRouter = ({routeList, onLoad}) => {
-  const loaders = jsonLoaderGenerator({
+  const loader = createJsonLoader({
     routeList: routeList,
     onLoad: onLoad,
   });
@@ -14,19 +14,13 @@ const JsonRouter = ({routeList, onLoad}) => {
   return (
     <BrowserRouter>
       <Switch>
-        {routeList.map(({route}, idx) => {
-          return (
-            <Route
-              key={`match-${idx}`}
-              exact={true}
-              path={route}
-              render={loaders[idx]}
-            />
-          );
-        })}
         <Route
-          path="*"
-          render={loaders[0]}
+          path="/404"
+          render={loader}
+        />
+        <Route
+          path="/:path"
+          render={loader}
         />
       </Switch>
     </BrowserRouter>
