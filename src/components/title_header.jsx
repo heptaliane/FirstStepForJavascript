@@ -3,11 +3,18 @@ import PropTypes from 'prop-types';
 
 import {Row, Col, Button} from 'antd';
 
-import {title, subtitle} from '../constant.json';
+import {
+  title,
+  subtitle,
+  gradient_colors as gcolors,
+  backgroud_image_url as bgUrl,
+} from '../constant.json';
 
+
+const bgimg = `url(${bgUrl})`;
 
 const headerStyle = {
-  background: 'linear-gradient(30deg, #23CDC7, #F000C8)',
+  background: `linear-gradient(30deg, ${gcolors[0]}, ${gcolors[1]}), ${bgimg}`,
   boxShadow: '1px 0px 2px rgba(0, 0, 0, 0.75)',
   height: '150px',
   padding: '10px',

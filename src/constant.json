@@ -1,6 +1,11 @@
 {
     "title": "はじめてのJavaScript",
     "subtitle": "よいJavaScriptコードを書くために",
+    "gradient_colors": [
+        "rgba(35, 206, 199, 0.8)",
+        "rgba(240, 0, 200, 0.8)"
+    ],
+    "backgroud_image_url": "img/title_bg.png",
     "author": "heptaliane",
     "author_url": "https://github.com/heptaliane",
     "route_json_url": "https://raw.githubusercontent.com/heptaliane/FirstStepForJavascript/master/docs/route.json"

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Markdown from 'react-markdown';
 
 import CodeView from './code_view.jsx';
 import extractCodeBlock from '../utils/extract_code_block.jsx';
@@ -52,9 +53,11 @@ export default class ContentBox extends React.PureComponent {
         {this.state.nonCodeBlocks.map((code, idx) => {
           return (
             <div key={`section-${idx}`}>
-              <pre key={`docs-${idx}`}>
-                {this.state.nonCodeBlocks[idx]}
-              </pre>
+              <Markdown
+                key={`docs-${idx}`}
+                escapeHtml={false}
+                source={this.state.nonCodeBlocks[idx]}
+              />
               {idx < this.state.codeBlocks.length &&
                 <CodeView
                   key={`code-${idx}`}
