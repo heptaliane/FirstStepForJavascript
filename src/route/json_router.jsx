@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import createJsonLoader from './create_json_loader.jsx';
+import {repo} from '../constant.json';
 
 
 const JsonRouter = ({routeList, onLoad}) => {
@@ -15,11 +16,11 @@ const JsonRouter = ({routeList, onLoad}) => {
     <BrowserRouter>
       <Switch>
         <Route
-          path="/404"
+          path={`/${repo}/404`}
           render={loader}
         />
         <Route
-          path="/:path"
+          path={`/${repo}/:path`}
           render={loader}
         />
       </Switch>

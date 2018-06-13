@@ -1,6 +1,7 @@
 {
     "title": "はじめてのJavaScript",
     "subtitle": "よいJavaScriptコードを書くために",
+    "repo": "FirstStepForJavascript", 
     "pastel_gradient_colors": [
         "rgba(240, 180, 170, 0.8)",
         "rgba(240, 235, 170, 0.8)",
@@ -21,6 +22,24 @@
         "rgba(35, 206, 199, 0.8)",
         "rgba(240, 0, 200, 0.8)"
     ],
+    "category": {
+        "none": {
+            "id": 0
+        },
+        "notice": {
+            "id": 1,
+            "label": "注意事項"
+        },
+        "js": {
+            "id": 2,
+            "label": "Javascriptの基本"
+        },
+        "react": {
+            "id": 3,
+            "label": "React.jsの基本"
+        }
+    },
+    "toc_label": "目次",
     "backgroud_image_url": "img/title_bg.png",
     "author": "heptaliane",
     "author_url": "https://github.com/heptaliane",

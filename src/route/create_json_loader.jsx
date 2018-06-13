@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import fetchJson from '../utils/fetch_json.js';
 import NotFound from './not_found.jsx';
-import {title} from '../constant.json';
+import {title, repo} from '../constant.json';
 
 
 const createJsonLoader = function({routeList, onLoad}) {
@@ -16,7 +16,7 @@ const createJsonLoader = function({routeList, onLoad}) {
     console.log(data);
 
     // Page not found
-    if (match.path === '/404') {
+    if (match.path === `/${repo}/404`) {
       onLoad({content: <NotFound />});
       window.title = `${title}: 404`;
 
