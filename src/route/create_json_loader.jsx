@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import fetchJson from '../utils/fetch_json.js';
 import NotFound from './not_found.jsx';
+import {title} from '../constant.json';
 
 
 const createJsonLoader = function({routeList, onLoad}) {
@@ -14,14 +15,16 @@ const createJsonLoader = function({routeList, onLoad}) {
     // Page not found
     if (match.path === '/404') {
       onLoad({content: <NotFound />});
+      window.title = `${title}: 404`;
 
     } else if (data.length > 0) {
-      fetchJson(data.jsonUrl).then((json) => {
+      fetchJson(data[0].jsonUrl).then((json) => {
         onLoad(Object.assign(json, {content: null}));
+        window.title = `${title}: ${json.title}`;
       }).
-        catch(() => {
-          onLoad(null);
-        });
+      catch(() => {
+        onLoad(null);
+      });
 
     // Page json is not found
     } else {

@@ -6,16 +6,16 @@ import {Row, Col, Button} from 'antd';
 import {
   title,
   subtitle,
-  vivid_gradient_colors as gcolors,
+  gradient_colors as gcolors,
 } from '../constant.json';
 
 
 const gradient = `linear-gradient(20deg, ${gcolors.join(',')})`;
 
 const headerStyle = {
-  animation: 'GradientAnimation 30s ease alternate infinite',
+  animation: 'GradientAnimation 5s ease alternate infinite',
   background: `${gradient}`,
-  backgroundSize: '600% 600%',
+  backgroundSize: '200% 200%',
   boxShadow: '1px 0px 2px rgba(0, 0, 0, 0.75)',
   height: '150px',
   padding: '10px',
