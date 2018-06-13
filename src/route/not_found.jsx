@@ -16,7 +16,7 @@ const textStyle = {
   animation: 'FadeFlash 2s ease infinite',
   height: '70px',
   fontSize: '40px',
-}
+};
 
 
 const NotFound = function() {

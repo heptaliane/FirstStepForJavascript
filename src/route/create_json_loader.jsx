@@ -7,10 +7,13 @@ import {title} from '../constant.json';
 
 
 const createJsonLoader = function({routeList, onLoad}) {
-  return function({match}) {
+  const JsonLoader = function({match}) {
     const data = routeList.filter(({route}) => {
-      return route === match.path;
+      return route === match.params.path;
     });
+
+    console.log(match);
+    console.log(data);
 
     // Page not found
     if (match.path === '/404') {
@@ -22,9 +25,9 @@ const createJsonLoader = function({routeList, onLoad}) {
         onLoad(Object.assign(json, {content: null}));
         window.title = `${title}: ${json.title}`;
       }).
-      catch(() => {
-        onLoad(null);
-      });
+        catch(() => {
+          onLoad(null);
+        });
 
     // Page json is not found
     } else {
@@ -34,6 +37,9 @@ const createJsonLoader = function({routeList, onLoad}) {
     return <div />;
   };
 
+  JsonLoader.propTypes = {match: PropTypes.any.isRequired};
+
+  return JsonLoader;
 };
 
 createJsonLoader.propTypes = {
