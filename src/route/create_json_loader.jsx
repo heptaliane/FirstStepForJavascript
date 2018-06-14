@@ -18,12 +18,12 @@ const createJsonLoader = function({routeList, onLoad}) {
     // Page not found
     if (match.path === '*/404') {
       onLoad({content: <NotFound />});
-      window.title = `${title}: 404`;
+      document.title = `${title}: 404`;
 
     } else if (data.length > 0) {
       fetchJson(data[0].jsonUrl).then((json) => {
         onLoad(Object.assign(json, {content: null}));
-        window.title = `${title}: ${json.title}`;
+        document.title = `${title}: ${json.title}`;
       }).
         catch(() => {
           onLoad(null);
