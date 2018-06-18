@@ -13,7 +13,7 @@ const createJsonLoader = function({routeList, onLoad}) {
     });
 
     console.log(match);
-    console.log(data);
+    console.log(match.params);
 
     // Page not found
     if (match.path === '*/404') {

@@ -3,10 +3,9 @@ import {Redirect} from 'react-router-dom';
 
 
 const QueryRedirect = function({match}) {
-
   return (
     <Redirect
-      to={match.param.query}
+      to={match.params.query}
     />
   );
 };

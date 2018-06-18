@@ -16,7 +16,7 @@ const JsonRouter = ({routeList, onLoad}) => {
     <BrowserRouter>
       <Switch>
         <Route
-          path="*/?=:query"
+          path="/?p=/:query"
           component={QueryRedirect}
         />
         <Route
