@@ -1,11 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {Redirect} from 'react-router-dom';
 
 import PageLayout from './components/page_layout.jsx';
 import ContentBox from './components/content_box.jsx';
 import AsyncRouter from './route/async_router.jsx';
-import getUrlQuery from './utils/get_url_query.js';
 
 
 class DefaultApp extends React.Component {
@@ -34,20 +32,9 @@ class DefaultApp extends React.Component {
     }
   }
 
-  getRedirectPath() {
-    const query = getUrlQuery();
-    return query.p;
-  }
-
   render() {
-    const path = this.getRedirectPath();
-
     return (
       <div>
-        {
-          path !== undefined &&
-          <Redirect to={path} />
-        }
         <AsyncRouter
           onLoad={this.handleLoad}
         />

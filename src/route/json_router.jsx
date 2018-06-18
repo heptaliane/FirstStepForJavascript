@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import createJsonLoader from './create_json_loader.jsx';
+import QueryRedirect from './query_redirect.jsx';
 
 
 const JsonRouter = ({routeList, onLoad}) => {
@@ -14,6 +15,10 @@ const JsonRouter = ({routeList, onLoad}) => {
   return (
     <BrowserRouter>
       <Switch>
+        <Route
+          path="*/?=:query"
+          component={QueryRedirect}
+        />
         <Route
           path="*/404"
           render={loader}
