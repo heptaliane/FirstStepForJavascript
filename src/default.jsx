@@ -40,7 +40,7 @@ class DefaultApp extends React.Component {
   }
 
   render() {
-    const path = getRedirectPath();
+    const path = this.getRedirectPath();
 
     return (
       <div>
