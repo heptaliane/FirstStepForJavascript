@@ -47,6 +47,7 @@ const queryHandler = function() {
           next: nextData.body === undefined ?
             {} :
             nextData.query,
+          origin: jsonList,
         });
 
         return data;
