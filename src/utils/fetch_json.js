@@ -1,4 +1,4 @@
-export default function(url) {
+const fetchJson = function(url) {
   return new Promise((resolve, reject) => {
     fetch(url, {cache: 'no-store'}).then((resp) => {
       return resp.json();
@@ -10,4 +10,6 @@ export default function(url) {
         reject(err);
       });
   });
-}
+};
+
+export default fetchJson;

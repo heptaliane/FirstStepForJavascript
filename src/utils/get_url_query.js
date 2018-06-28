@@ -1,11 +1,18 @@
-export default function() {
-  const search = window.location.search.slice(1).split('&');
+const getUrlQuery = function() {
+  const search = window.location.search.slice(1);
+  if (search.length === 0) {
+    return {};
+  }
+
+  const queryList = search.split('&');
   const query = {};
 
-  for (let i = 0; i < search.length; i += 1) {
-    const pair = search[i].split('=');
+  for (let i = 0; i < queryList.length; i += 1) {
+    const pair = queryList[i].split('=');
     query[pair[0]] = pair[1];
   }
 
   return query;
-}
+};
+
+export default getUrlQuery;

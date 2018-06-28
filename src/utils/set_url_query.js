@@ -1,4 +1,4 @@
-export default function(query) {
+const setUrlQuery = function(query) {
   const search = [];
   const keys = Object.keys(query);
 
@@ -10,4 +10,6 @@ export default function(query) {
   }
 
   location.search = `?${search.join('&')}`;
-}
+};
+
+export default setUrlQuery;

@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 
 import PageLayout from './components/page_layout.jsx';
 import ContentBox from './components/content_box.jsx';
-import queryRouter from './utils/query_router.js';
+import queryHandler from './utils/query_handler.js';
 import {content_id as contentId} from './constant.json';
 
 
@@ -26,15 +26,12 @@ class DefaultApp extends React.Component {
   }
 
   componentDidMount() {
-    queryRouter().then((data) => {
-      if (data === null) {
-        // show 404 content
-
-      } else if (data.content === contentId.toc) {
-        // show toc
+    queryHandler().then((data) => {
+      if (data.content === contentId.toc) {
+        // Show toc
 
       } else {
-        // set content
+        // Set content
         this.setState({
           next: data.next,
           prev: data.prev,
@@ -43,7 +40,11 @@ class DefaultApp extends React.Component {
           content: null,
         });
       }
-    });
+    }).
+      catch((err) => {
+      // Redirect to 404 page
+        console.error(err);
+      });
   }
 
   render() {
