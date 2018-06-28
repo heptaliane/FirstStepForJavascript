@@ -39,6 +39,10 @@
             "label": "React.jsの基本"
         }
     },
+    "content_id": {
+      "top": "top",
+      "toc": "toc"
+    },
     "toc_label": "目次",
     "backgroud_image_url": "img/title_bg.png",
     "author": "heptaliane",

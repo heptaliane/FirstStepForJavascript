@@ -3,7 +3,8 @@ import {render} from 'react-dom';
 
 import PageLayout from './components/page_layout.jsx';
 import ContentBox from './components/content_box.jsx';
-import AsyncRouter from './route/async_router.jsx';
+import queryRouter from './utils/query_router.js';
+import {content_id as contentId} from './constant.json';
 
 
 class DefaultApp extends React.Component {
@@ -22,36 +23,44 @@ class DefaultApp extends React.Component {
       body: undefined,
       content: null,
     };
-
-    this.handleLoad = this.handleLoad.bind(this);
   }
 
-  handleLoad(data) {
-    if (data !== null) {
-      this.setState(data);
-    }
+  componentDidMount() {
+    queryRouter().then((data) => {
+      if (data === null) {
+        // show 404 content
+
+      } else if (data.content === contentId.toc) {
+        // show toc
+
+      } else {
+        // set content
+        this.setState({
+          next: data.next,
+          prev: data.prev,
+          title: data.title,
+          body: data.body,
+          content: null,
+        });
+      }
+    });
   }
 
   render() {
     return (
-      <div>
-        <AsyncRouter
-          onLoad={this.handleLoad}
-        />
-        <PageLayout
-          nextUrl={this.state.next}
-          prevUrl={this.state.prev}
-          section={this.state.title}
-        >
-          {this.state.content}
-          {
-            this.state.content === null &&
-            <ContentBox
-              body={this.state.body}
-            />
-          }
-        </PageLayout>
-      </div>
+      <PageLayout
+        nextUrl={this.state.next}
+        prevUrl={this.state.prev}
+        section={this.state.title}
+      >
+        {this.state.content}
+        {
+          this.state.content === null &&
+          <ContentBox
+            body={this.state.body}
+          />
+        }
+      </PageLayout>
     );
   }
 

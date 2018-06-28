@@ -2,10 +2,12 @@ export default function(url) {
   return new Promise((resolve, reject) => {
     fetch(url, {cache: 'no-store'}).then((resp) => {
       return resp.json();
-    }).then((json) => {
-      resolve(json);
-    }).catch((err) => {
-      reject(err);
-    });
+    }).
+      then((json) => {
+        resolve(json);
+      }).
+      catch((err) => {
+        reject(err);
+      });
   });
 }

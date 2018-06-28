@@ -12,8 +12,8 @@ const PageLayout = (props) => {
   return (
     <Layout>
       <TitleHeader
-        nextUrl={props.nextUrl}
-        prevUrl={props.prevUrl}
+        next={props.next}
+        prev={props.prev}
         section={props.section}
       />
       <Content style={{marginTop: '200px'}}>
@@ -26,15 +26,15 @@ const PageLayout = (props) => {
 
 PageLayout.propTypes = {
   children: PropTypes.node,
-  nextUrl: PropTypes.string,
-  prevUrl: PropTypes.string,
+  next: PropTypes.objectOf(PropTypes.string),
+  prev: PropTypes.objectOf(PropTypes.string),
   section: PropTypes.string,
 };
 
 PageLayout.defaultProps = {
   children: '',
-  nextUrl: '',
-  prevUrl: '',
+  next: {},
+  prev: {},
   section: '',
 };
 

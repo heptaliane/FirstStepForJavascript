@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {Row, Col, Button} from 'antd';
 
+import setUrlQuery from '../utils/set_url_query.js';
 import {
   title,
   subtitle,
@@ -88,8 +88,8 @@ export default class TitleHeader extends React.Component {
 
     this.state = {
       section: props.section,
-      nextUrl: props.nextUrl,
-      prevUrl: props.prevUrl,
+      next: props.next,
+      prev: props.prev,
     };
 
     this.handleTop = this.handleTop.bind(this);
@@ -98,18 +98,15 @@ export default class TitleHeader extends React.Component {
   }
 
   handlePrev() {
-    location.href = this.state.prevUrl;
+    setUrlQuery(this.state.prev);
   }
 
   handleNext() {
-    location.href = this.state.nextUrl;
+    setUrlQuery(this.state.next);
   }
 
   handleTop() {
-    const idx = window.location.pathname.slice(1).indexOf('/') + 1;
-    const repo = window.location.pathname.slice(0, idx);
-    const node = window.location.pathname.slice(idx);
-    window.location.replace(`${repo}/?p=${node}`);
+    location.search = '';
   }
 
   render() {
@@ -135,7 +132,7 @@ export default class TitleHeader extends React.Component {
         <Row style={controlStyle}>
           <Col span={4}>
             <Button
-              disabled={this.state.prevUrl === ''}
+              disabled={Object.keys(this.state.prev).length === 0}
               icon="arrow-left"
               onClick={this.handlePrev}
               style={buttonStyle}
@@ -152,7 +149,7 @@ export default class TitleHeader extends React.Component {
           </Col>
           <Col span={4}>
             <Button
-              disabled={this.state.nextUrl === ''}
+              disabled={Object.keys(this.state.next).length === 0}
               icon="arrow-right"
               onClick={this.handleNext}
               style={buttonStyle}
@@ -170,13 +167,13 @@ export default class TitleHeader extends React.Component {
 }
 
 TitleHeader.propTypes = {
-  nextUrl: PropTypes.string,
-  prevUrl: PropTypes.string,
+  next: PropTypes.objectOf(PropTypes.string),
+  prev: PropTypes.objectOf(PropTypes.string),
   section: PropTypes.string,
 };
 
 TitleHeader.defaultProps = {
-  nextUrl: '',
-  prevUrl: '',
+  next: {},
+  prev: {},
   section: '',
 };

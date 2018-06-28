@@ -1,16 +1,17 @@
 [
-    {
-        "category": 0,
-        "jsonUrl": "https://raw.githubusercontent.com/heptaliane/FirstStepForJavascript/master/docs/docs/index.json",
-        "route": "",
-        "title": "トップページ",
-        "date": [2018, 6, 12]
+  {
+    "path": "docs/index.json",
+    "query": {},
+    "title": "トップページ",
+    "date": [2018, 6, 12]
+  },
+  {
+    "jsonUrl": "docs/00/00.json",
+    "query": {
+      "category": 1,
+      "list": 0
     },
-    {
-        "category": 1,
-        "jsonUrl": "docs/00/00.json",
-        "route": "before_reading",
-        "title": "はじめに",
-        "date": [2018, 6, 12]
-    }
+    "title": "はじめに",
+    "date": [2018, 6, 12]
+  }
 ]
