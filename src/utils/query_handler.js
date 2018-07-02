@@ -32,6 +32,10 @@ const queryHandler = function() {
 
   }).
     then(({idx, jsonList}) => {
+      if (jsonList[idx].path === undefined) {
+        return {content: jsonList[idx].content};
+      }
+
       return fetchJson(jsonList[idx].path).then((data) => {
         const prevData = idx > 0 ?
           jsonList[idx - 1] :
