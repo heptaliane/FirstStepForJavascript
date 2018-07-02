@@ -33,7 +33,10 @@ const queryHandler = function() {
   }).
     then(({idx, jsonList}) => {
       if (jsonList[idx].path === undefined) {
-        return {content: jsonList[idx].content};
+        return {
+          content: jsonList[idx].content,
+          origin: jsonList,
+        };
       }
 
       return fetchJson(jsonList[idx].path).then((data) => {
@@ -51,7 +54,6 @@ const queryHandler = function() {
           next: nextData.body === undefined ?
             {} :
             nextData.query,
-          origin: jsonList,
         });
 
         return data;

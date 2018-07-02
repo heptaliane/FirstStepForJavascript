@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Avatar, Collapse} from 'antd';
 
-import TOCItem from './toc_item.jsx';
+import TOCLink from './toc_link.jsx';
+
 import {
   category,
   toc_label as tocLabel,
@@ -12,11 +13,20 @@ import {
 const titleText = {
   fontSize: '30px',
   fontWeight: 'bold',
+  margin: '10px',
 };
 
 const iconStyle = {
-  color: 'cyan',
+  backgroundColor: 'rgba(0,0,0,0)',
+  color: 'navy',
   margin: '10px',
+  marginTop: '0px',
+};
+
+const containerStyle = {
+  backgroundColor: 'rgba(128, 128, 128, 0.2)',
+  fontSize: '20px',
+  padding: '20px',
 };
 
 
@@ -26,31 +36,30 @@ const TOC = function({routeList}) {
       <div>
         <Avatar
           icon="bars"
+          size="large"
           style={iconStyle}
         />
         <span style={titleText}>
           {tocLabel}
         </span>
       </div>
-      <Collapse accodion={true}>
-        <TOCItem
-          label={category.notice.label}
-          routeList={routeList.filter((data) => {
-            return data.query.category === category.notice.id;
-          })}
-        />
-        <TOCItem
-          label={category.js.label}
-          routeList={routeList.filter((data) => {
-            return data.query.category === category.js.id;
-          })}
-        />
-        <TOCItem
-          label={category.react.label}
-          routeList={routeList.filter((data) => {
-            return data.query.category === category.react.id;
-          })}
-        />
+      <Collapse accordion={true}>
+        {Object.keys(category).map((key) => {
+          return (
+            <Collapse.Panel
+              key={`container-${key}`}
+              header={category[key].label}
+            >
+              <TOCLink
+                key={`link-${key}`}
+                style={containerStyle}
+                routeList={routeList.filter((data) => {
+                  return data.query.category === category[key].id;
+                })}
+              />
+            </Collapse.Panel>
+          );
+        })}
       </Collapse>
     </div>
   );
@@ -59,7 +68,10 @@ const TOC = function({routeList}) {
 TOC.propTypes = {
   routeList: PropTypes.arrayOf(PropTypes.shape({
     date: PropTypes.arrayOf(PropTypes.number).isRequired,
-    query: PropTypes.objectOf(PropTypes.string).isRequired,
+    query: PropTypes.objectOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ])).isRequired,
     title: PropTypes.string.isRequired,
   })).isRequired,
 };

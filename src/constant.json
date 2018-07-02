@@ -23,9 +23,6 @@
         "rgba(240, 0, 200, 0.8)"
     ],
     "category": {
-        "none": {
-            "id": 0
-        },
         "notice": {
             "id": 1,
             "label": "注意事項"

@@ -27,7 +27,10 @@ const MapView = function({routeList}) {
 MapView.propTypes = {
   routeList: PropTypes.arrayOf(PropTypes.shape({
     date: PropTypes.arrayOf(PropTypes.number).isRequired,
-    query: PropTypes.objectOf(PropTypes.string).isRequired,
+    query: PropTypes.objectOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ])).isRequired,
     title: PropTypes.string.isRequired,
   })).isRequired,
 };
