@@ -2,15 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Avatar, Icon, Row, Col} from 'antd';
 
+import setUrlQuery from '../utils/set_url_query.js';
+
 
 const iconStyle = {
   backgroundColor: 'green',
   margin: 'auto',
 };
 
-const titleStyle = {textAlign: 'left'};
+const titleStyle = {
+  fontSize: '20px',
+  textAlign: 'left',
+};
 
-const dateStyle = {textAlign: 'right'};
+const dateStyle = {
+  fontSize: '20px',
+  textAlign: 'right',
+  marginRight: '10px',
+};
 
 const maxDepth = 3;
 
@@ -33,7 +42,7 @@ export default class TOCLink extends React.Component {
     }
 
     const query = this.routeList[target.id].query;
-    console.log(query);
+    setUrlQuery(query);
   }
 
   render() {
@@ -43,9 +52,14 @@ export default class TOCLink extends React.Component {
           return (
             <Row
               key={`container-${idx}`}
+              className="selectablePanel"
               id={idx}
               onClick={this.handleClick}
             >
+              <Col
+                key={`spacer-${idx}`}
+                span={1}
+              />
               <Col
                 key={`icon-${idx}`}
                 span={2}
@@ -53,19 +67,20 @@ export default class TOCLink extends React.Component {
                 <Avatar
                   key={`avatar-${idx}`}
                   icon="message"
+                  size="large"
                   style={iconStyle}
                 />
               </Col>
               <Col
                 key={`title-${idx}`}
-                span={16}
+                span={13}
                 style={titleStyle}
               >
                 {title}
               </Col>
               <Col
                 key={`date-${idx}`}
-                span={6}
+                span={7}
                 style={dateStyle}
               >
                 <Icon

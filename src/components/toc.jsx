@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Avatar, Collapse} from 'antd';
 
 import TOCLink from './toc_link.jsx';
+import TOCHeader from './toc_header.jsx';
 
 import {
   category,
@@ -11,7 +12,7 @@ import {
 
 
 const titleText = {
-  fontSize: '30px',
+  fontSize: '36px',
   fontWeight: 'bold',
   margin: '10px',
 };
@@ -33,7 +34,7 @@ const containerStyle = {
 const TOC = function({routeList}) {
   return (
     <div>
-      <div>
+      <div style={{margin: '20px'}}>
         <Avatar
           icon="bars"
           size="large"
@@ -43,19 +44,19 @@ const TOC = function({routeList}) {
           {tocLabel}
         </span>
       </div>
-      <Collapse accordion={true}>
+      <Collapse defaultActiveKey={Object.keys(category)}>
         {Object.keys(category).map((key) => {
           return (
             <Collapse.Panel
-              key={`container-${key}`}
-              header={category[key].label}
+              key={key}
+              header={<TOCHeader title={category[key].label} />}
             >
               <TOCLink
                 key={`link-${key}`}
-                style={containerStyle}
                 routeList={routeList.filter((data) => {
                   return data.query.category === category[key].id;
                 })}
+                style={containerStyle}
               />
             </Collapse.Panel>
           );
