@@ -4,6 +4,7 @@ import {render} from 'react-dom';
 import PageLayout from './components/page_layout.jsx';
 import ContentBox from './components/content_box.jsx';
 import MapView from './components/map_view.jsx';
+import NotFound from './components/not_found.jsx';
 import queryHandler from './utils/query_handler.js';
 import {content_id as contentId} from './constant.json';
 
@@ -45,7 +46,9 @@ class DefaultApp extends React.Component {
     }).
       catch((err) => {
       // Redirect to 404 page
-        console.error(err);
+        this.setState({
+          content: <NotFound />
+        });
       });
   }
 
