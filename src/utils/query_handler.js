@@ -43,7 +43,7 @@ const queryHandler = function() {
         const prevData = idx > 0 ?
           jsonList[idx - 1] :
           {};
-        const nextData = idx <= jsonList.length ?
+        const nextData = idx < jsonList.length - 1 ?
           jsonList[idx + 1] :
           {};
 
