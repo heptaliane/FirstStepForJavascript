@@ -13,5 +13,14 @@
     },
     "title": "はじめに",
     "date": [2018, 6, 12]
+  },
+  {
+    "path": "docs/00/01.json",
+    "query": {
+      "category": 1,
+      "list": 1
+    },
+    "title": "環境構築",
+    "date": [2018, 7, 9]
   }
 ]

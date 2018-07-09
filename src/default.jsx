@@ -6,7 +6,10 @@ import ContentBox from './components/content_box.jsx';
 import MapView from './components/map_view.jsx';
 import NotFound from './components/not_found.jsx';
 import queryHandler from './utils/query_handler.js';
-import {content_id as contentId} from './constant.json';
+import {
+  content_id as contentId,
+  title,
+} from './constant.json';
 
 
 class DefaultApp extends React.Component {
@@ -29,6 +32,7 @@ class DefaultApp extends React.Component {
 
   componentDidMount() {
     queryHandler().then((data) => {
+      document.title = `${data.title} - ${title}`;
       if (data.content === contentId.toc) {
         // Show toc
         this.setState({content: <MapView routeList={data.origin} />});
