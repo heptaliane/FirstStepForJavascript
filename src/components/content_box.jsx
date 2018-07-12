@@ -21,18 +21,6 @@ const boxStyle = {
 
 export default class ContentBox extends React.PureComponent {
 
-  static getDerivedStateFromProps(nextProps) {
-    const [
-      code,
-      nonCode,
-    ] = extractCodeBlock(nextProps.body);
-
-    return {
-      codeBlocks: code,
-      nonCodeBlocks: nonCode,
-    };
-  }
-
   constructor(props) {
     super(props);
 
@@ -42,6 +30,18 @@ export default class ContentBox extends React.PureComponent {
     ] = extractCodeBlock(props.body);
 
     this.state = {
+      codeBlocks: code,
+      nonCodeBlocks: nonCode,
+    };
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    const [
+      code,
+      nonCode,
+    ] = extractCodeBlock(nextProps.body);
+
+    return {
       codeBlocks: code,
       nonCodeBlocks: nonCode,
     };

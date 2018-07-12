@@ -48,10 +48,10 @@ const queryHandler = function() {
           {};
 
         Object.assign(data, {
-          prev: prevData.body === undefined ?
+          prev: prevData.path === undefined ?
             {} :
             prevData.query,
-          next: nextData.body === undefined ?
+          next: nextData.path === undefined ?
             {} :
             nextData.query,
         });

@@ -73,16 +73,6 @@ const buttonStyle = {
 
 export default class TitleHeader extends React.Component {
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.section !== prevState.section ||
-      nextProps.nextUrl !== prevState.nextUrl ||
-      nextProps.prevUrl !== prevState.prevUrl) {
-      return nextProps;
-    }
-
-    return null;
-  }
-
   constructor(props) {
     super(props);
 
@@ -95,6 +85,14 @@ export default class TitleHeader extends React.Component {
     this.handleTop = this.handleTop.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
     this.handleNext = this.handleNext.bind(this);
+  }
+
+  static getDerivedStateFromProps({section, next, prev}) {
+    return {
+      section: section,
+      next: next,
+      prev: prev,
+    };
   }
 
   handlePrev() {

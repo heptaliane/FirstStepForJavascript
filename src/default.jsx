@@ -9,6 +9,7 @@ import queryHandler from './utils/query_handler.js';
 import {
   content_id as contentId,
   title,
+  toc_label,
 } from './constant.json';
 
 
@@ -32,10 +33,15 @@ class DefaultApp extends React.Component {
 
   componentDidMount() {
     queryHandler().then((data) => {
-      document.title = `${data.title} - ${title}`;
+      document.title = data.title === undefined ?
+        `${title}` :
+        `${data.title} - ${title}`;
       if (data.content === contentId.toc) {
         // Show toc
-        this.setState({content: <MapView routeList={data.origin} />});
+        this.setState({
+          content: <MapView routeList={data.origin} />,
+          title: toc_label,
+        });
 
       } else {
         // Set content
@@ -59,8 +65,8 @@ class DefaultApp extends React.Component {
   render() {
     return (
       <PageLayout
-        nextUrl={this.state.next}
-        prevUrl={this.state.prev}
+        next={this.state.next}
+        prev={this.state.prev}
         section={this.state.title}
       >
         {this.state.content}

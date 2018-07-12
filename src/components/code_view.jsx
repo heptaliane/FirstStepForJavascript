@@ -63,13 +63,13 @@ export default class CodeView extends React.PureComponent {
     this.handleVisible = this.handleVisible.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      code: newProps.code,
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      code: nextProps.code,
       copyText: defaultCopyLabel,
-      filename: newProps.filename,
-      filetype: newProps.filetype,
-    });
+      filename: nextProps.filename,
+      filetype: nextProps.filetype,
+    };
   }
 
   handleCopy() {
