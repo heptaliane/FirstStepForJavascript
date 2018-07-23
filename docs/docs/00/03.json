@@ -34,7 +34,7 @@
     "javascriptをブラウザで実行したいのなら、",
     "javascriptを読み込むhtmlを開けば良い。  ",
     "## next  ",
-    "次節ではJavascriptのバージョンについて説明します。"
+    "次節ではJavascriptの仕様であるecmascriptについて軽く説明します。"
   ],
   "title": [
     "ファイルからJavascriptを実行する"

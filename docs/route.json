@@ -40,5 +40,14 @@
     },
     "title": "ファイルからJavascriptを実行する",
     "date": [2018, 7, 23]
+  },
+  {
+    "path": "docs/00/04.json",
+    "query": {
+      "category": 1,
+      "list": 4
+    },
+    "title": "ecmascriptとは",
+    "date": [2018, 7, 23]
   }
 ]

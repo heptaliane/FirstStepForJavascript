@@ -1,0 +1,15 @@
+{
+  "body": [
+    "# ecmascript  ",
+    "javascriptの仕様はecmascriptによって策定されており、",
+    "ecmascriptの更新とともにjavascriptには様々な機能が追加されてきています。  ",
+    "しかし古いブラウザでは最新のecmascriptの仕様に対応していないことがある",
+    "ため、このサイトでは最近のecmascriptによる機能には () つきで",
+    "注釈をつけるように心がけています。  ",
+    "## next  ",
+    "次章からはjavascriptの文法について説明していきます。"
+  ],
+  "title": [
+    "ecmascript"
+  ]
+}
