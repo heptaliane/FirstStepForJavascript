@@ -1,0 +1,42 @@
+{
+  "body": [
+    "# ファイルからJavascriptを実行する  ",
+    "この節ではファイルに書いたJavascriptコードをブラウザで実行する方法を",
+    "説明します。  ",
+    "ブラウザでファイルに書いたJavascriptを実行すると言っても、",
+    "pythonなどのように `firefox something_written_js.js`として",
+    "javascriptが実行できるわけではありません。  ",
+    "基本的にブラウザでJavascriptファイルを読み込んで実行するには、",
+    "読み込みたいJavascriptを指定したhtmlをブラウザで開く必要があります。  ",
+    "以下に同じディレクトリ内のjavascriptファイル、 `something_written_js.js`",
+    "を読み込むhtmlファイルの例を示します。  ",
+    "```html:index.html",
+    "<html>",
+    "  <head>",
+    "    <meta charset=\"utf-8\">",
+    "    <script type=\"text/javascript\" src=\"./something_written_js.js\"></script>",
+    "  </head>",
+    "</html>",
+    "```",
+    "3行目の`<meta>`の部分ではこのhtml内で使用する文字コードを指定しています。",
+    "windowsで作成したhtmlなら`cp932`を指定すれば良いと思われます。  ",
+    "4行目がjavascriptをロードする部分で、`type`でロードするスクリプトの種類",
+    "(今回の場合はjavascript)を、",
+    " `src`でロードしたいファイルのパスを指定します。  ",
+    "## 実践  ",
+    "実際に次に示す `hello.js`を作成して `index.html`から読み込んでみましょう。  ",
+    "```javascript:hello.js",
+    "console.log('Hello World');",
+    "```",
+    "`firefox index.html`などのコマンドで`index.html`を開いて",
+    "Consoleを確認すると、'Hello World'という出力がなされていれば成功です。  ",
+    "## まとめ  ",
+    "javascriptをブラウザで実行したいのなら、",
+    "javascriptを読み込むhtmlを開けば良い。  ",
+    "## next ->  ",
+    "次節ではJavascriptのバージョンについて説明します。"
+  ],
+  "title": [
+    "ファイルからJavascriptを実行する"
+  ]
+}

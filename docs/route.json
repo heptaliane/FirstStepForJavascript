@@ -22,5 +22,23 @@
     },
     "title": "環境構築",
     "date": [2018, 7, 9]
+  },
+  {
+    "path": "docs/00/02.json",
+    "query": {
+      "category": 1,
+      "list": 2
+    },
+    "title": "ブラウザでのJavascriptの実行方法",
+    "date": [2018, 7, 23]
+  },
+  {
+    "path": "docs/00/03.json",
+    "query": {
+      "category": 1,
+      "list": 3
+    },
+    "title": "ファイルからJavascriptを実行する",
+    "date": [2018, 7, 23]
   }
 ]

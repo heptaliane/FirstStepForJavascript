@@ -8,10 +8,11 @@
     "筆者の主観ではless buggyで最新のJavascriptのAPIにも対応している",
     "firefoxがおすすめです。",
     "このサイトではFirefoxまたはChromeを使うことを想定して話を進めます。  ",
-    "次章では自分で書いたJavascriptをブラウザ上で実行する方法について",
-    "解説します。",
     "# まとめ",
-    "Javascriptの実行にはブラウザがあればok!  "
+    "Javascriptの実行にはブラウザがあればok!  ",
+    "# next ->  ",
+    "次節では自分で書いたJavascriptをブラウザ上で実行する方法について",
+    "解説します。"
   ],
   "title": "環境構築"
 }
