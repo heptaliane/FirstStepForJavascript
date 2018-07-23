@@ -72,6 +72,12 @@ export default class CodeView extends React.PureComponent {
     };
   }
 
+  componentDidMount() {
+    document.querySelectorAll('code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }
+
   handleCopy() {
     const result = copyToClipboard(this.state.code.join('\n'));
 
@@ -143,5 +149,3 @@ CodeView.defaultProps = {
   filename: '',
   filetype: 'none',
 };
-
-hljs.initHighlightingOnLoad();
