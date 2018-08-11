@@ -1,8 +1,12 @@
-.heptaliane-blue, pre .hljs-function, pre .hljs-comment, pre .hljs-title, pre .hljs-tag, pre .hljs-html .hljs-doctype, pre .hljs-css .hljs-class, pre .hljs-css .hljs-pseudo {
-  color: #00ffff;
+.heptaliane-aqua, pre .hljs-function, pre .hljs-function > .hljs-keyword, pre .hljs-comment, pre .hljs-title, pre .hljs-tag, pre .hljs-html .hljs-doctype, pre .hljs-css .hljs-class, pre .hljs-css .hljs-pseudo {
+  color: #66cccc;
 }
 
-.heptaliane-green, pre .hljs-variable, pre .hljs-attribute, pre .hljs-css .hljs-id, pre .hljs-attr {
+.heptaliane-blue, pre .hljs-comment {
+  color: #6699cc;
+}
+
+.heptaliane-green, pre .hljs-variable, pre .hljs-attribute, pre .hljs-css .hljs-id, pre .hljs-attr, pre .hljs-params {
   color: #32cd32;
 }
 
@@ -16,6 +20,7 @@
 
 .heptaliane-red, pre .hljs-keyword {
   color: #ff0000;
+  font-weight: bold;
 }
 
 pre code {
