@@ -17,7 +17,6 @@ const codeBlockStyle = {
 const filenameStyle = {
   backgroundColor: 'rgba(255, 255, 255, 0.25)',
   color: '#ffffff',
-  fontWeight: 'bold',
   right: '0px',
   padding: '5px',
   paddingLeft: '10px',
@@ -29,7 +28,6 @@ const filenameStyle = {
 const lineNumberRowStyle = {
   backgroundColor: '#2d2d2d',
   color: '#cccccc',
-  fontWeight: 'bold',
   marginTop: '1px',
   padding: '10px',
   textAlign: 'right',
@@ -100,7 +98,7 @@ export default class CodeView extends React.PureComponent {
         </div>
         <Row>
           <Col
-            span={1}
+            span={2}
             style={lineNumberRowStyle}
           >
             {this.state.code.map((line, idx) => {
@@ -111,7 +109,7 @@ export default class CodeView extends React.PureComponent {
               );
             })}
           </Col>
-          <Col span={23}>
+          <Col span={22}>
             <pre>
               <code
                 className={this.state.filetype}
