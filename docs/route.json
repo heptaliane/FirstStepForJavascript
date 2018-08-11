@@ -49,5 +49,14 @@
     },
     "title": "ecmascriptとは",
     "date": [2018, 7, 23]
+  },
+  {
+    "path": "docs/01/00.json",
+    "query": {
+      "category": 2,
+      "list": 0
+    },
+    "title": "Javascriptの変数の種類",
+    "date": [2018, 8, 11]
   }
 ]
